@@ -28,7 +28,7 @@ async def on_message(message):
         return
 
     # メンションを検出
-    if get(message.mentions, id=bot.user.id):  
+    if get(message.mentions, id=bot.user.id):
         content = message.content.replace(f"<@{bot.user.id}>", "").strip()
 
         # OpenAI APIキーの確認
@@ -50,6 +50,7 @@ async def on_message(message):
             )
             response = completion.choices[0].message.content
         except Exception as e:
+            logging.error(f"OpenAI API Error: {e}")
             response = "エラーが発生しました。"
 
         await message.channel.send(response)

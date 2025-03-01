@@ -51,8 +51,9 @@ async def on_message(message):
             )
             response = completion.choices[0].message.content
         except Exception as e:
+            error_message = f"エラーが発生しました。\n```\n{e}\n```"
             logging.error(f"OpenAI API Error: {e}")
-            response = "エラーが発生しました。"
+            await message.channel.send(error_message)
 
         await message.channel.send(response)
 

@@ -17,7 +17,7 @@ openai_api_key = getenv('OPENAI_API_KEY')
 if not openai_api_key:
     raise ValueError("環境変数 OPENAI_API_KEY が設定されていません。")
 
-client = openai.OpenAI(api_key=openai_api_key)
+client = openai.Client(api_key=openai_api_key)
 
 # 許可するユーザーのIDをリストで管理（自分のDiscord IDを設定）
 ALLOWED_USERS = [kajioji.]  # ここに自分のDiscord IDを入れる

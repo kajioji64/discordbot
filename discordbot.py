@@ -19,6 +19,9 @@ if not openai_api_key:
 
 client = openai.OpenAI(api_key=openai_api_key)
 
+# 許可するユーザーのIDをリストで管理（自分のDiscord IDを設定）
+ALLOWED_USERS = [kajioji.]  # ここに自分のDiscord IDを入れる
+
 # メッセージ履歴の管理
 messages = [
     {"role": "system", "content": "You are a helpful assistant. The AI assistant's name is AI Qiitan."},
@@ -35,6 +38,10 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
+        return
+
+    # 許可されていないユーザーなら無視
+    if message.author.id not in ALLOWED_USERS:
         return
 
     # メンションを検出

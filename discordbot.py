@@ -21,9 +21,9 @@ client = openai.OpenAI(api_key=openai_api_key)
 
 # メッセージ履歴の管理
 messages = [
-    {"role": "system", "content": "You are a helpful assistant. The AI assistant's name is AI Qiitan."},
+    {"role": "system", "content": "You are a helpful assistant. The AI assistant's name is bot."},
     {"role": "user", "content": "こんにちは。あなたは誰ですか？"},
-    {"role": "assistant", "content": "私は AI アシスタントの AI Qiitan です。なにかお手伝いできることはありますか？"}
+    {"role": "assistant", "content": "私はbotです。なにかお手伝いできることはありますか？"}
 ]
 
 @bot.event
